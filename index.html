@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" ng-app="t9Word">
+<head>
+  <meta charset="utf-8">
+  <title>T9 Word</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/t9word.css">
+  <script src="js/t9.js"></script>
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="T9Ctrl" ng-keypress="pressPhoneKey($event)">
+
+  <h1>T9 Word</h1>
+
+  <div id="phone-pad">
+    <div class="row">
+      <a href="" ng-click="addToSequence(1)">1<small>&nbsp;</small></a>
+      <a href="" ng-click="addToSequence(2)">2<small>ABC</small></a>
+      <a href="" ng-click="addToSequence(3)">3<small>DEF</small></a>
+    </div>
+    <div class="row">
+      <a href="" ng-click="addToSequence(4)">4<small>GHI</small></a>
+      <a href="" ng-click="addToSequence(5)">5<small>JKL</small></a>
+      <a href="" ng-click="addToSequence(6)">6<small>MNO</small></a>
+    </div>
+    <div class="row">
+      <a href="" ng-click="addToSequence(7)">7<small>PQRS</small></a>
+      <a href="" ng-click="addToSequence(8)">8<small>TUV</small></a>
+      <a href="" ng-click="addToSequence(9)">9<small>WXYZ</small></a>
+    </div>
+    <div class="row">
+      <a href="" ng-click="undoLast()">*<small>(undo)</small></a>
+      <a href="" ng-click="addToSequence(0)">0<small>&nbsp;</small></a>
+      <a href="" ng-click="clearSequence()">#<small>(clear)</small></a>
+    </div>
+  </div>
+
+  <div id="t9words">
+    <h2>{{numberSequence}}</h2>
+    <div class="info">
+      <aside class="total">Total words: {{words.length | number:0}}</aside>
+      <aside class="search">Search: <input type="search" ng-model="query"></aside>
+    </div>
+    <div class="words">
+      <ul>
+        <li ng-repeat="word in words | filter:query | startFrom:currentPage*pageSize | limitTo:pageSize">
+          {{word}}
+        </li>
+      </ul>
+    </div>
+    <div class="pager" ng-hide="numberOfPages() <= 1">
+      <button ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1">&lt;</button>
+      <span>{{currentPage+1 | number:0}} / {{numberOfPages() | number:0}}</span>
+      <button ng-hide="currentPage >= filteredWords.length/pageSize - 1" ng-click="currentPage=currentPage+1">&gt;</button>
+    </div>
+  </div>
+ 
+</body>
+</html>

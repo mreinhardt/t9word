@@ -1,0 +1,63 @@
+body { background: #ddd; padding: 0 0 20px; }
+h1 { text-align: center; }
+
+#phone-pad { font: 24px/1.2 Helvetica, Arial, sans-serif; }
+#phone-pad .row { margin: 0 auto; width: 246px; }
+#phone-pad .row a {
+    background: #fff;
+    border: 3px outset #eee;
+    color: #333;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px; padding: 5px;
+    width: 50px; height: 50px;
+
+    border-radius: 10px;
+}
+#phone-pad .row a:hover { background: #cff; border: 3px outset #9ef; }
+#phone-pad .row a:active { background: #fea; border: 3px inset #fc6; }
+#phone-pad .row a small {
+    color: #999;
+    display: block;
+    font-size: 0.5em;
+    margin: 5px 0 0;
+}
+
+#t9words { text-align: center; }
+#t9words h2 {
+    background: #efe;
+    border: 1px solid #6c6;
+    color: #6c6;
+    display: inline-block;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    min-width: 28px; min-height: 24px;
+
+    border-radius: 10px;
+}
+#t9words .info { margin: 0 auto 10px; width: 50%; height: 24px; }
+#t9words .info .total { float: left; }
+#t9words .info .search { float: right; position: relative; bottom: 3px; }
+#t9words .words {
+    background: #eee;
+    border: 1px solid #999;
+    overflow: auto;
+    margin: 5px auto; padding: 5px;
+    width: 50%; height: 200px;
+}
+#t9words ul {
+    margin: 0; padding: 0;
+}
+#t9words ul li {
+    display: inline-block;
+    margin: 2px 5px; padding: 2px 5px;
+}
+#t9words .pager span {
+    display: inline-block;
+    width: 160px;
+}
+#t9words .ng-hide {
+    display: inline-block !important;
+    visibility: hidden;
+}
