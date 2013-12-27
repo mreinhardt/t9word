@@ -16,7 +16,7 @@ given the number sequence.
 var getPossibleWords, getTrieCombinations;
 
 getPossibleWords = function(numberSequence) {
-  var curLeaf, leaf, leaves, letter, letterTrie, letters, lfi, lfl, lti, ltl, newLeaves, nsi, nsl, num, numLetters;
+  var curLeaf, leaf, leaves, letter, letterTrie, letters, lfi, lfl, lti, ltl, newLeaves, nsi, nsl, num, numLetters, _i, _j, _k;
   numLetters = {
     0: null,
     1: null,
@@ -43,16 +43,16 @@ getPossibleWords = function(numberSequence) {
   numberSequence = numberSequence.toString();
   nsi = 0;
   nsl = numberSequence.length;
-  while (nsi < nsl) {
+  for (nsi = _i = nsi; nsi <= nsl ? _i < nsl : _i > nsl; nsi = nsi <= nsl ? ++_i : --_i) {
     num = numberSequence[nsi];
     letters = (numLetters[num] ? numLetters[num].split("") : []);
     lti = 0;
     ltl = letters.length;
-    while (lti < ltl) {
+    for (lti = _j = lti; lti <= ltl ? _j < ltl : _j > ltl; lti = lti <= ltl ? ++_j : --_j) {
       letter = letters[lti];
       lfi = 0;
       lfl = leaves.length;
-      while (lfi < lfl) {
+      for (lfi = _k = lfi; lfi <= lfl ? _k < lfl : _k > lfl; lfi = lfi <= lfl ? ++_k : --_k) {
         leaf = leaves[lfi];
         curLeaf = {};
         leaf[letter] = curLeaf;
@@ -72,7 +72,7 @@ getPossibleWords = function(numberSequence) {
 };
 
 getTrieCombinations = function(trie, memo) {
-  var answer, i, k, keys, kl, sci, scl, subans, subcomb;
+  var answer, i, k, keys, kl, sci, scl, subans, subcomb, _i, _j;
   keys = Object.keys(trie);
   kl = keys.length;
   k = void 0;
@@ -88,7 +88,7 @@ getTrieCombinations = function(trie, memo) {
     return [];
   }
   i = 0;
-  while (i < kl) {
+  for (i = _i = i; i <= kl ? _i < kl : _i > kl; i = i <= kl ? ++_i : --_i) {
     k = keys[i];
     if (k === "sequence") {
       continue;
@@ -98,7 +98,7 @@ getTrieCombinations = function(trie, memo) {
     if (scl) {
       subans = [];
       sci = 0;
-      while (sci < scl) {
+      for (sci = _j = sci; sci <= scl ? _j < scl : _j > scl; sci = sci <= scl ? ++_j : --_j) {
         subans.push(k + subcomb[sci]);
         sci++;
       }

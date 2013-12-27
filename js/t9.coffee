@@ -43,18 +43,18 @@ getPossibleWords = (numberSequence) ->
 	nsi = 0
 	nsl = numberSequence.length
 
-	while nsi < nsl
+	for nsi in [nsi...nsl]
 		num = numberSequence[nsi]
 		letters = (if numLetters[num] then numLetters[num].split("") else [])
 		lti = 0
 		ltl = letters.length
 
-		while lti < ltl
+		for lti in [lti...ltl]
 			letter = letters[lti]
 			lfi = 0
 			lfl = leaves.length
 
-			while lfi < lfl
+			for lfi in [lfi...lfl]
 				leaf = leaves[lfi]
 				curLeaf = {}
 				leaf[letter] = curLeaf # add new leaf to trie at letter key
@@ -84,7 +84,7 @@ getTrieCombinations = (trie, memo) ->
 	return []  unless kl
 	i = 0
 
-	while i < kl
+	for i in [i...kl]
 		k = keys[i]
 		continue  if k is "sequence"
 		subcomb = getTrieCombinations(trie[k], memo)
@@ -96,7 +96,7 @@ getTrieCombinations = (trie, memo) ->
 			subans = []
 			sci = 0
 
-			while sci < scl
+			for sci in [sci...scl]
 				subans.push k + subcomb[sci]
 				sci++
 			answer = answer.concat(subans)
