@@ -1,0 +1,5 @@
+# ignore bower components
+components/*
+
+# ignore npm modules
+node_modules/*
