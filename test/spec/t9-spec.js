@@ -6,6 +6,6 @@
 		});
 		it("wind", function() {
 			return expect(getPossibleWords(wind)).toContain('wind');
-		})
+		});
 	});
 }).call(this);

@@ -12,4 +12,6 @@ t9word
 
 	$ grunt
 
-# Browse to [http://localhost:8000/test/](http://localhost:8000/test/) and see all test pass
+	$ grunt coffee
+
+Browse to [http://localhost:8000/test/](http://localhost:8000/test/) and see all test pass

@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: "/js",
+	baseUrl: "../js",
 	urlArgs: 'cb=' + Math.random(),
 	paths: {
 		jquery: '../components/jquery/jquery.min',
