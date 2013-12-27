@@ -26,13 +26,14 @@ module.exports = function(grunt) {
 		},
 
 		exec: {
-			jasmine:{
-				command: 'node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/bin/phantomjs test/lib/run-jasmine.js http://localhost:8000/test &',
-				stdout: true
+			bower: {
+				command: 'node_modules/bower/bin/bower install'
 			},
 			coffee: {
-				command: 'node_modules/coffee-script/bin/coffee -c -b js/',
-				stdout: true
+				command: 'node_modules/coffee-script/bin/coffee -c -b js/'
+			},
+			jasmine:{
+				command: 'node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/bin/phantomjs test/lib/run-jasmine.js http://localhost:8000/test &'
 			}
 		}
 
@@ -46,5 +47,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['connect:test', 'exec', 'watch']);
 	grunt.registerTask('coffee', ['exec:coffee']);
+	grunt.registerTask('bower', ['exec:bower']);
 
 }
